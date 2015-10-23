@@ -1,8 +1,8 @@
 /**
  *
  * Author:              Shastri Harrinanan
- * Version:             0.2.1.0
- * Project Revision:    #004
+ * Version:             0.2.2.0
+ * Project Revision:    #005
  * Date Created:        22/10/2015
  * Date Modified:       23/10/2015
  * 
@@ -11,6 +11,7 @@
  * #002 23/10/2015 0.1.0.0 - 0.1.1.0: Reorganise the main menu and add missing constructors
  * #003 23/10/2015 0.1.1.0 - 0.2.0.0: Add partial create functionality and refactor the menus
  * #004 23/10/2015 0.2.0.0 - 0.2.1.0: Add partial update functionality
+ * #005 23/10/2015 0.2.1.0 - 0.2.2.0: Add partial delete functionality
  * 
  * Current Status: Under Construction.
  * 
@@ -58,6 +59,7 @@ public class HotelAccommodation {
                     break;
                 case 4:
                     // Delete
+                    AppMenu.DeleteMenu();
                     break;
                 case 5:
                     // Exit

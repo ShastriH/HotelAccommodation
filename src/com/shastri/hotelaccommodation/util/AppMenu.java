@@ -78,7 +78,7 @@ public class AppMenu {
             switch (response) {
                 case 1:
                     System.out.println();
-                    updateGuestHandler();
+                    GuestController.updateGuestHandler();
                     break;
                 default:
                     break;
@@ -88,20 +88,19 @@ public class AppMenu {
                     + "Please enter a number.");
         }
     }
-    
-    public static void updateGuestHandler() throws SQLException {
+       
+    public static void DeleteMenu() throws SQLException {
+        int response;
         try {
-            int guestID = UserInput.reqInt("Please enter the ID of the guest you want to modify below.\nGuest ID");
-            System.out.println();
-            Guest guest = GuestController.getRow(guestID);
-            if(guest == null){
-                System.err.println("No guest was found with an ID of " + guestID);
-                return;
+            response = UserInput.reqInt("Which type of record would you like to delete?" + "\n\n" + "1. Guest" + "\n" + "2. Booking" + "\n" + "3. Room" + "\n\n" + "Please make your selection by entering the corresponding number");
+            switch (response) {
+                case 1:
+                    int guestID = UserInput.reqInt("\nPlease enter the ID of the guest you want to delete below.\nGuest ID");
+                    GuestController.deleteGuest(guestID);
+                    break;
+                default:
+                    break;
             }
-            System.out.println("The details of the guest you selected are as follows:");
-            GuestController.viewGuestRow(guestID);
-            System.out.println();
-            GuestController.requestGuestData(guestID);
         } catch (NumberFormatException e) {
             System.out.println("\nAn error occurred. You did not enter a valid value.\n"
                     + "Please enter a number.");

@@ -161,6 +161,24 @@ public class GuestController {
     /*
     * Update
     */
+    public static void updateGuestHandler() throws SQLException {
+        try {
+            int guestID = UserInput.reqInt("Please enter the ID of the guest you want to modify below.\nGuest ID");
+            System.out.println();
+            Guest guest = GuestController.getRow(guestID);
+            if (guest == null) {
+                System.err.println("No guest was found with an ID of " + guestID);
+                return;
+            }
+            System.out.println("The details of the guest you selected are as follows:");
+            GuestController.viewGuestRow(guestID);
+            System.out.println();
+            GuestController.requestGuestData(guestID);
+        } catch (NumberFormatException e) {
+            System.out.println("\nAn error occurred. You did not enter a valid value.\n" + "Please enter a number.");
+        }
+    }
+    
     public static void requestGuestData(int guestID) throws SQLException {
         Guest guest = new Guest();
         guest.setGuestID(guestID);
@@ -207,4 +225,22 @@ public class GuestController {
     /*
     * Delete
     */
+    public static void deleteGuest(int guestID) throws SQLException {
+        try(
+                Connection conn = DBUtil.connect();
+                PreparedStatement stmt = conn.prepareStatement(DBUtil.DELETEGUEST);
+            ) {
+            
+            stmt.setInt(1, guestID);
+            
+            int numAffectedRows = stmt.executeUpdate();
+            if(numAffectedRows == 1){
+                System.out.println("\nThe guest with the primary key of " + guestID + " was successfully deleted.");
+            } else {
+                System.err.println("The requested record was not found. Nothing was deleted.");
+            }
+        } catch(SQLException e) {
+            System.err.println(e);
+        }
+    } 
 }

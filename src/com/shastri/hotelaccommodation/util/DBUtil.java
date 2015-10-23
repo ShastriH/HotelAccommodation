@@ -30,6 +30,7 @@ public class DBUtil {
             + "guestTitle = ?, guestFirstName = ?, guestLastName = ?, guestAddress = ?, guestEmail = ?, guestPhone = ? "
             + "WHERE guestID = ?";
     // Delete
+    public static final String DELETEGUEST = "DELETE FROM guest WHERE guestID = ?";
     
     
     /*
