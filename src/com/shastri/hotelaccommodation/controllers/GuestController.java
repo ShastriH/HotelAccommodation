@@ -1,6 +1,6 @@
 package com.shastri.hotelaccommodation.controllers;
 
-import com.shastri.hotelaccommodation.util.DBUtil;
+import com.shastri.hotelaccommodation.util.DBManager;
 import com.shastri.hotelaccommodation.beans.Guest;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +10,7 @@ import java.sql.Statement;
 import me.shastri.libs.UserInput;
 
 public class GuestController {
+    private static Connection conn = DBManager.getInstance().getConnection();
     /*
     * Create
     */
@@ -29,10 +30,7 @@ public class GuestController {
     
     public static boolean insertGuest(Guest guest) throws SQLException {
         ResultSet key = null;
-        try(
-                Connection conn = DBUtil.connect();
-                PreparedStatement stmt = conn.prepareStatement(DBUtil.INSERTGUEST, Statement.RETURN_GENERATED_KEYS);
-            ) {
+        try(PreparedStatement stmt = conn.prepareStatement(DBManager.INSERTGUEST, Statement.RETURN_GENERATED_KEYS);){
             
             stmt.setString(1, guest.getTitle());
             stmt.setString(2, guest.getFirstName());
@@ -65,10 +63,7 @@ public class GuestController {
     */
     public static void viewGuestRow(int guestID) throws SQLException {
         ResultSet result = null;
-        try (
-                Connection conn = DBUtil.connect();
-                PreparedStatement stmt = conn.prepareStatement(DBUtil.GUESTROW);
-            ){
+        try (PreparedStatement stmt = conn.prepareStatement(DBManager.GUESTROW);){
             stmt.setInt(1, guestID);
             result = stmt.executeQuery();
             
@@ -94,10 +89,7 @@ public class GuestController {
     }
     public static void viewTableContents() throws SQLException {
         ResultSet result = null;
-        try (
-                Connection conn = DBUtil.connect();
-                PreparedStatement stmt = conn.prepareStatement(DBUtil.GUEST);
-            ){
+        try (PreparedStatement stmt = conn.prepareStatement(DBManager.GUEST);){
             result = stmt.executeQuery();
             System.out.println("The contents of the guest table are as follows: " + "\n");
             while(result.next()){
@@ -125,10 +117,7 @@ public class GuestController {
     }
     public static Guest getRow(int guestID) throws SQLException {
         ResultSet result = null;
-        try (
-                Connection conn = DBUtil.connect();
-                PreparedStatement stmt = conn.prepareStatement(DBUtil.GUESTROW);
-            ){
+        try (PreparedStatement stmt = conn.prepareStatement(DBManager.GUESTROW);){
             stmt.setInt(1, guestID);
             result = stmt.executeQuery();
             
@@ -195,10 +184,7 @@ public class GuestController {
     }
     
     public static boolean updateGuest(Guest guest) throws SQLException {
-        try(
-                Connection conn = DBUtil.connect();
-                PreparedStatement stmt = conn.prepareStatement(DBUtil.UPDATEGUEST);
-            ) {
+        try(PreparedStatement stmt = conn.prepareStatement(DBManager.UPDATEGUEST);) {
             
             stmt.setString(1, guest.getTitle());
             stmt.setString(2, guest.getFirstName());
@@ -226,10 +212,7 @@ public class GuestController {
     * Delete
     */
     public static void deleteGuest(int guestID) throws SQLException {
-        try(
-                Connection conn = DBUtil.connect();
-                PreparedStatement stmt = conn.prepareStatement(DBUtil.DELETEGUEST);
-            ) {
+        try(PreparedStatement stmt = conn.prepareStatement(DBManager.DELETEGUEST);) {
             
             stmt.setInt(1, guestID);
             

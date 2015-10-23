@@ -3,7 +3,7 @@ package com.shastri.hotelaccommodation.controllers;
 // @author Shastri
 
 import com.shastri.hotelaccommodation.beans.Hotel;
-import com.shastri.hotelaccommodation.util.DBUtil;
+import com.shastri.hotelaccommodation.util.DBManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,12 +11,11 @@ import java.sql.SQLException;
 
 
 public class HotelController {
-    public static void getTableContents() throws SQLException{
+    private static Connection conn = DBManager.getInstance().getConnection();
+    
+    public static void viewTableContents() throws SQLException{
         ResultSet result = null;
-        try (
-                Connection conn = DBUtil.connect();
-                PreparedStatement stmt = conn.prepareStatement(DBUtil.HOTEL);
-            ){
+        try (PreparedStatement stmt = conn.prepareStatement(DBManager.HOTEL);){
             result = stmt.executeQuery();
             System.out.println("The contents of the hotel table are as follows: ");
             while(result.next()){
@@ -36,10 +35,7 @@ public class HotelController {
     }
     public static Hotel getRow(int hotelID) throws SQLException {
         ResultSet result = null;
-        try (
-                Connection conn = DBUtil.connect();
-                PreparedStatement stmt = conn.prepareStatement(DBUtil.HOTELROW);
-            ){
+        try (PreparedStatement stmt = conn.prepareStatement(DBManager.HOTELROW);){
             stmt.setInt(1, hotelID);
             result = stmt.executeQuery();
             

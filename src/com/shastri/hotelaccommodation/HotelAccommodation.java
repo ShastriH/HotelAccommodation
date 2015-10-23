@@ -1,8 +1,8 @@
 /**
  *
  * Author:              Shastri Harrinanan
- * Version:             0.2.2.0
- * Project Revision:    #005
+ * Version:             0.3.0.0
+ * Project Revision:    #006
  * Date Created:        22/10/2015
  * Date Modified:       23/10/2015
  * 
@@ -12,6 +12,7 @@
  * #003 23/10/2015 0.1.1.0 - 0.2.0.0: Add partial create functionality and refactor the menus
  * #004 23/10/2015 0.2.0.0 - 0.2.1.0: Add partial update functionality
  * #005 23/10/2015 0.2.1.0 - 0.2.2.0: Add partial delete functionality
+ * #006 23/10/2015 0.2.2.0 - 0.3.0.0: Change to a persistent database connection
  * 
  * Current Status: Under Construction.
  * 
@@ -20,12 +21,14 @@
 package com.shastri.hotelaccommodation;
 
 import com.shastri.hotelaccommodation.util.AppMenu;
+import com.shastri.hotelaccommodation.util.DBManager;
 import java.sql.SQLException;
 import me.shastri.libs.UserInput;
 
 public class HotelAccommodation {
 
     public static void main(String[] args) throws SQLException {
+        DBManager.getInstance();
         System.out.println("Welcome to the Hotel Accommodation App!\n\n");
         int response = 0;
         do{
@@ -74,5 +77,8 @@ public class HotelAccommodation {
             }
             System.out.println("\n");
         } while(response != 5);
+        
+        // Close the connection when the application terminates
+        DBManager.getInstance().close();
     }
 }
