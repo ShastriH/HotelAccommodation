@@ -87,6 +87,7 @@ public class GuestController {
             }
         }
     }
+    
     public static void viewTableContents() throws SQLException {
         ResultSet result = null;
         try (PreparedStatement stmt = conn.prepareStatement(DBManager.GUEST);){
@@ -115,7 +116,8 @@ public class GuestController {
             }
         }
     }
-    public static Guest getRow(int guestID) throws SQLException {
+    
+    public static Guest getGuestRow(int guestID) throws SQLException {
         ResultSet result = null;
         try (PreparedStatement stmt = conn.prepareStatement(DBManager.GUESTROW);){
             stmt.setInt(1, guestID);
@@ -154,15 +156,15 @@ public class GuestController {
         try {
             int guestID = UserInput.reqInt("Please enter the ID of the guest you want to modify below.\nGuest ID");
             System.out.println();
-            Guest guest = GuestController.getRow(guestID);
+            Guest guest = getGuestRow(guestID);
             if (guest == null) {
                 System.err.println("No guest was found with an ID of " + guestID);
                 return;
             }
             System.out.println("The details of the guest you selected are as follows:");
-            GuestController.viewGuestRow(guestID);
+            viewGuestRow(guestID);
             System.out.println();
-            GuestController.requestGuestData(guestID);
+            requestGuestData(guestID);
         } catch (NumberFormatException e) {
             System.out.println("\nAn error occurred. You did not enter a valid value.\n" + "Please enter a number.");
         }
@@ -178,7 +180,7 @@ public class GuestController {
         guest.setEmail(UserInput.reqString("Enter the guest's email"));
         guest.setPhone(UserInput.reqString("Enter the guest's phone number"));
         boolean updateGuest = updateGuest(guest);
-        if (updateGuest) {
+        if(updateGuest){
             System.out.println("\nThe guest with the primary key of " + guest.getGuestID() + " was successfully updated.");
         }
     }
@@ -225,5 +227,5 @@ public class GuestController {
         } catch(SQLException e) {
             System.err.println(e);
         }
-    } 
+    }
 }

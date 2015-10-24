@@ -8,6 +8,8 @@ public class Hotel {
     private int hotelID;
     private String address;
     
+    public Hotel(){}
+    
     public Hotel(int hotelID, String address){
         this.hotelID = hotelID;
         this.address = address;

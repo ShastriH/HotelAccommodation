@@ -6,13 +6,17 @@ public class Manager {
     private String lastName = "";
     private String email = "";
     private String phone = "";
+    private int hotelID = 0;
     
-    public Manager(int managerID, String firstName, String lastName, String email, String phone){
+    public Manager(){}
+    
+    public Manager(int managerID, String firstName, String lastName, String email, String phone, int hotelID){
         this.managerID = managerID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
+        this.hotelID = hotelID;
     }
 
     public int getManagerID(){
@@ -53,6 +57,14 @@ public class Manager {
 
     public void setPhone(String phone){
         this.phone = phone;
+    }
+    
+    public int getHotelID() {
+        return hotelID;
+    }
+    
+    public void setHotelID(int hotelID) {
+        this.hotelID = hotelID;
     }
     
     @Override

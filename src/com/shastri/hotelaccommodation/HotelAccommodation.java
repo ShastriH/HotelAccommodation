@@ -1,10 +1,10 @@
 /**
  *
  * Author:              Shastri Harrinanan
- * Version:             0.3.0.0
- * Project Revision:    #006
+ * Version:             0.3.1.0
+ * Project Revision:    #007
  * Date Created:        22/10/2015
- * Date Modified:       23/10/2015
+ * Date Modified:       24/10/2015
  * 
  * Commit Log:
  * #001 22/10/2015 0.0.0.0 - 0.1.0.0: Add initial files
@@ -13,6 +13,7 @@
  * #004 23/10/2015 0.2.0.0 - 0.2.1.0: Add partial update functionality
  * #005 23/10/2015 0.2.1.0 - 0.2.2.0: Add partial delete functionality
  * #006 23/10/2015 0.2.2.0 - 0.3.0.0: Change to a persistent database connection
+ * #007 24/10/2015 0.3.0.0 - 0.3.1.0: Add complete functionality for more tables
  * 
  * Current Status: Under Construction.
  * 
