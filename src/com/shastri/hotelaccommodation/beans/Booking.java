@@ -8,6 +8,8 @@ public class Booking {
     private Date arrival = null;
     private Date departure  = null;
     
+    public Booking(){}
+    
     public Booking(int bookingID, int roomID, Date arrival, Date departure){
         this.bookingID = bookingID;
         this.roomID = roomID;

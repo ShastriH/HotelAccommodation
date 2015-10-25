@@ -1,10 +1,10 @@
 /**
  *
  * Author:              Shastri Harrinanan
- * Version:             0.3.1.0
- * Project Revision:    #007
+ * Version:             0.4.0.0
+ * Project Revision:    #008
  * Date Created:        22/10/2015
- * Date Modified:       24/10/2015
+ * Date Modified:       25/10/2015
  * 
  * Commit Log:
  * #001 22/10/2015 0.0.0.0 - 0.1.0.0: Add initial files
@@ -14,6 +14,7 @@
  * #005 23/10/2015 0.2.1.0 - 0.2.2.0: Add partial delete functionality
  * #006 23/10/2015 0.2.2.0 - 0.3.0.0: Change to a persistent database connection
  * #007 24/10/2015 0.3.0.0 - 0.3.1.0: Add complete functionality for more tables
+ * #008 25/10/2015 0.3.1.0 - 0.4.0.0: Add complete functionality for the remaining tables
  * 
  * Current Status: Under Construction.
  * 
@@ -44,7 +45,7 @@ public class HotelAccommodation {
                         + "\n"
                         + "4. Delete a record"
                         + "\n"
-                        + "5. Exit"
+                        + "5. Exit HotelAccommodation"
                         + "\n\n"
                         + "Please make your selection by entering the corresponding number");
             System.out.println();
@@ -69,7 +70,8 @@ public class HotelAccommodation {
                     // Exit
                     break;
                 default:
-                    // Exit if any unassociated value is passed
+                    // Process any unknown values
+                    System.out.println("You entered an invalid value. Please try again.");
                     break;
             }
             } catch (NumberFormatException e) {

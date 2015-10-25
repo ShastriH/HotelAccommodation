@@ -4,6 +4,14 @@ public class GuestBooking {
     private int guestBookingID = 0;
     private int bookingID = 0;
     private int guestID = 0;
+    
+    public GuestBooking(){}
+    
+    public GuestBooking(int guestBookingID, int bookingID, int guestID){
+        this.guestBookingID = guestBookingID;
+        this.bookingID = bookingID;
+        this.guestID = guestID;
+    }
 
     public int getGuestBookingID(){
         return guestBookingID;

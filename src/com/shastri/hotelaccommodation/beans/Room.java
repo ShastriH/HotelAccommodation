@@ -7,6 +7,8 @@ public class Room {
     private boolean seaView = false;
     private int hotelID = 0;
     
+    public Room(){}
+    
     public Room(int roomID, double price, int capacity, boolean seaView, int hotelID){
         this.roomID = roomID;
         this.price = price;
@@ -39,7 +41,7 @@ public class Room {
         this.capacity = capacity;
     }
 
-    public boolean isSeaView(){
+    public boolean getSeaView(){
         return seaView;
     }
 
