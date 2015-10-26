@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import me.shastri.libs.UserInput;
 
-
 public class DBManager {
     
     private static DBManager instance = null;

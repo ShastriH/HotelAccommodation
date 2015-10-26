@@ -1,8 +1,8 @@
 /**
  *
  * Author:              Shastri Harrinanan
- * Version:             0.5.0.0
- * Project Revision:    #009
+ * Version:             0.5.0.1
+ * Project Revision:    #010
  * Date Created:        22/10/2015
  * Date Modified:       26/10/2015
  * 
@@ -15,7 +15,8 @@
  * #006 23/10/2015 0.2.2.0 - 0.3.0.0: Change to a persistent database connection
  * #007 24/10/2015 0.3.0.0 - 0.3.1.0: Add complete functionality for more tables
  * #008 25/10/2015 0.3.1.0 - 0.4.0.0: Add complete functionality for the remaining tables
- * #009 26/05/2015 0.4.0.0 - 0.5.0.0: Convert project to GUI
+ * #009 26/10/2015 0.4.0.0 - 0.5.0.0: Convert project to GUI
+ * #010 26/10/2015 0.5.0.0 - 0.5.0.1: Conduct minor cleaning
  * 
  * Current Status: Under Construction.
  * 

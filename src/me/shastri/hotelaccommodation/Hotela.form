@@ -1553,9 +1553,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Room ID"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateBookingRoomIDFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="updateBookingArrivalTimeLabel">
           <Properties>
@@ -1572,9 +1569,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Arrival Time"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateBookingArrivalTimeFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="updateBookingDepartureTimeLabel">
           <Properties>
@@ -1591,9 +1585,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Departure Time"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateBookingDepartureTimeFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="updateBookingButton">
           <Properties>
@@ -1602,9 +1593,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Update Booking"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateBookingButtonActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="updateBookingContainerMainMenuButton">
           <Properties>
@@ -1797,9 +1785,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Address"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateGuestAddressFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="updateGuestEmailField">
           <Properties>
@@ -1808,9 +1793,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateGuestEmailFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="updateGuestPhoneField">
           <Properties>
@@ -1819,9 +1801,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Phone"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateGuestPhoneFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="updateGuestButton">
           <Properties>
@@ -2208,9 +2187,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateManagerEmailFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="updateManagerPhoneLabel">
           <Properties>
@@ -2227,9 +2203,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Phone"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateManagerPhoneFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="updateManagerHotelIDLabel">
           <Properties>
@@ -2246,9 +2219,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Hotel ID"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateManagerHotelIDFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="updateManagerButton">
           <Properties>
@@ -2469,9 +2439,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Sea View"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateRoomSeaViewFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="updateRoomHotelIDField">
           <Properties>
@@ -2480,9 +2447,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Hotel ID"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateRoomHotelIDFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="updateRoomButton">
           <Properties>

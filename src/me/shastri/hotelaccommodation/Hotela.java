@@ -1,20 +1,20 @@
 package me.shastri.hotelaccommodation;
 
-import me.shastri.hotelaccommodation.beans.*;
-import me.shastri.hotelaccommodation.controllers.*;
-import me.shastri.hotelaccommodation.util.DBManager;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import me.shastri.hotelaccommodation.beans.*;
+import me.shastri.hotelaccommodation.controllers.*;
+import me.shastri.hotelaccommodation.util.DBManager;
 
 public class Hotela extends javax.swing.JFrame {
     private static final Connection conn = DBManager.getInstance().getConnection();
     /**
      * Creates new form Hotela
-     */
+    */
     public Hotela() {
         initComponents();
         initCustomComponents();
@@ -1158,41 +1158,21 @@ public class Hotela extends javax.swing.JFrame {
 
         updateBookingRoomIDField.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateBookingRoomIDField.setText("Room ID");
-        updateBookingRoomIDField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateBookingRoomIDFieldActionPerformed(evt);
-            }
-        });
 
         updateBookingArrivalTimeLabel.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateBookingArrivalTimeLabel.setText("Arrival Time");
 
         updateBookingArrivalTimeField.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateBookingArrivalTimeField.setText("Arrival Time");
-        updateBookingArrivalTimeField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateBookingArrivalTimeFieldActionPerformed(evt);
-            }
-        });
 
         updateBookingDepartureTimeLabel.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateBookingDepartureTimeLabel.setText("Departure Time");
 
         updateBookingDepartureTimeField.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateBookingDepartureTimeField.setText("Departure Time");
-        updateBookingDepartureTimeField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateBookingDepartureTimeFieldActionPerformed(evt);
-            }
-        });
 
         updateBookingButton.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateBookingButton.setText("Update Booking");
-        updateBookingButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateBookingButtonActionPerformed(evt);
-            }
-        });
 
         updateBookingContainerMainMenuButton.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         updateBookingContainerMainMenuButton.setText("Return to Main Menu");
@@ -1310,27 +1290,12 @@ public class Hotela extends javax.swing.JFrame {
 
         updateGuestAddressField.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateGuestAddressField.setText("Address");
-        updateGuestAddressField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateGuestAddressFieldActionPerformed(evt);
-            }
-        });
 
         updateGuestEmailField.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateGuestEmailField.setText("Email");
-        updateGuestEmailField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateGuestEmailFieldActionPerformed(evt);
-            }
-        });
 
         updateGuestPhoneField.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateGuestPhoneField.setText("Phone");
-        updateGuestPhoneField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateGuestPhoneFieldActionPerformed(evt);
-            }
-        });
 
         updateGuestButton.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateGuestButton.setText("Update Guest");
@@ -1554,33 +1519,18 @@ public class Hotela extends javax.swing.JFrame {
 
         updateManagerEmailField.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateManagerEmailField.setText("Email");
-        updateManagerEmailField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateManagerEmailFieldActionPerformed(evt);
-            }
-        });
 
         updateManagerPhoneLabel.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateManagerPhoneLabel.setText("Phone");
 
         updateManagerPhoneField.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateManagerPhoneField.setText("Phone");
-        updateManagerPhoneField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateManagerPhoneFieldActionPerformed(evt);
-            }
-        });
 
         updateManagerHotelIDLabel.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateManagerHotelIDLabel.setText("Hotel ID");
 
         updateManagerHotelIDField.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateManagerHotelIDField.setText("Hotel ID");
-        updateManagerHotelIDField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateManagerHotelIDFieldActionPerformed(evt);
-            }
-        });
 
         updateManagerButton.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateManagerButton.setText("Update Manager");
@@ -1731,19 +1681,9 @@ public class Hotela extends javax.swing.JFrame {
 
         updateRoomSeaViewField.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateRoomSeaViewField.setText("Sea View");
-        updateRoomSeaViewField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateRoomSeaViewFieldActionPerformed(evt);
-            }
-        });
 
         updateRoomHotelIDField.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateRoomHotelIDField.setText("Hotel ID");
-        updateRoomHotelIDField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateRoomHotelIDFieldActionPerformed(evt);
-            }
-        });
 
         updateRoomButton.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         updateRoomButton.setText("Update Room");
@@ -2112,14 +2052,6 @@ public class Hotela extends javax.swing.JFrame {
         updateRoomContainer.setVisible(false);
     }//GEN-LAST:event_updateRoomContainerUpdateMenuButtonActionPerformed
 
-    private void updateRoomSeaViewFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateRoomSeaViewFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateRoomSeaViewFieldActionPerformed
-
-    private void updateRoomHotelIDFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateRoomHotelIDFieldActionPerformed
-        // TODO add your handling code here:     
-    }//GEN-LAST:event_updateRoomHotelIDFieldActionPerformed
-
     private void updateRoomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateRoomButtonActionPerformed
         String selectedItem = updateRoomRecordsComboBox.getSelectedItem().toString();
         Room room = new Room(
@@ -2134,7 +2066,7 @@ public class Hotela extends javax.swing.JFrame {
             fillRoomRecordsComboBoxes();
             JOptionPane.showMessageDialog(null, "The room with the ID of "
                     + selectedItem + " was successfully updated.");
-        } catch (SQLException ex) {
+        } catch (SQLException e) {
             //JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_updateRoomButtonActionPerformed
@@ -2296,14 +2228,6 @@ public class Hotela extends javax.swing.JFrame {
         updateGuestContainer.setVisible(false);
     }//GEN-LAST:event_updateGuestContainerUpdateMenuButtonActionPerformed
 
-    private void updateGuestAddressFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateGuestAddressFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateGuestAddressFieldActionPerformed
-
-    private void updateGuestEmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateGuestEmailFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateGuestEmailFieldActionPerformed
-
     private void updateGuestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateGuestButtonActionPerformed
         String selectedItem = updateGuestRecordsComboBox.getSelectedItem().toString();
         Guest guest = new Guest(
@@ -2320,7 +2244,7 @@ public class Hotela extends javax.swing.JFrame {
             fillGuestRecordsComboBoxes();
             JOptionPane.showMessageDialog(null, "The guest with the ID of "
                     + selectedItem + " was successfully updated.");
-        } catch (SQLException ex) {
+        } catch (SQLException e) {
             //JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_updateGuestButtonActionPerformed
@@ -2348,28 +2272,6 @@ public class Hotela extends javax.swing.JFrame {
         updateBookingContainer.setVisible(false);
     }//GEN-LAST:event_updateBookingContainerUpdateMenuButtonActionPerformed
 
-    private void updateBookingDepartureTimeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBookingDepartureTimeFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateBookingDepartureTimeFieldActionPerformed
-
-    private void updateBookingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBookingButtonActionPerformed
-        String selectedItem = updateBookingRecordsComboBox.getSelectedItem().toString();
-        Booking booking = new Booking(
-                Integer.parseInt(selectedItem),
-                Integer.parseInt(updateBookingRoomIDField.getText()),
-                Date.valueOf(updateBookingArrivalTimeField.getText()),
-                Date.valueOf(updateBookingDepartureTimeField.getText())
-        );
-        try {
-            BookingController.updateBooking(booking);
-            fillBookingRecordsComboBoxes();
-            JOptionPane.showMessageDialog(null, "The booking with the ID of "
-                    + selectedItem + " was successfully updated.");
-        } catch (SQLException ex) {
-            //JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_updateBookingButtonActionPerformed
-
     private void updateManagerRecordsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateManagerRecordsComboBoxActionPerformed
         try{
             Manager manager = ManagerController.getManagerRow(Integer.parseInt(updateManagerRecordsComboBox.getSelectedItem().toString()));
@@ -2395,14 +2297,6 @@ public class Hotela extends javax.swing.JFrame {
         updateManagerContainer.setVisible(false);
     }//GEN-LAST:event_updateManagerContainerUpdateMenuButtonActionPerformed
 
-    private void updateManagerEmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateManagerEmailFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateManagerEmailFieldActionPerformed
-
-    private void updateManagerPhoneFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateManagerPhoneFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateManagerPhoneFieldActionPerformed
-
     private void updateManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateManagerButtonActionPerformed
         String selectedItem = updateManagerRecordsComboBox.getSelectedItem().toString();
         Manager manager = new Manager(
@@ -2423,22 +2317,6 @@ public class Hotela extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_updateManagerButtonActionPerformed
 
-    private void updateGuestPhoneFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateGuestPhoneFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateGuestPhoneFieldActionPerformed
-
-    private void updateBookingRoomIDFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBookingRoomIDFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateBookingRoomIDFieldActionPerformed
-
-    private void updateBookingArrivalTimeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBookingArrivalTimeFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateBookingArrivalTimeFieldActionPerformed
-
-    private void updateManagerHotelIDFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateManagerHotelIDFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateManagerHotelIDFieldActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -2455,15 +2333,11 @@ public class Hotela extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Hotela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Hotela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Hotela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Hotela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */
