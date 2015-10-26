@@ -1,4 +1,4 @@
-package com.shastri.hotelaccommodation.util;
+package me.shastri.hotelaccommodation.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -63,6 +63,7 @@ public class DBManager {
             + "VALUES (?, ?, ?)";
     // Read
     public static final String BOOKING = "SELECT * FROM booking";
+    public static final String BOOKINGID = "SELECT bookingID FROM booking";
     public static final String BOOKINGROW = "SELECT * FROM booking WHERE bookingID = ?";
     // Update
     public static final String UPDATEBOOKING = "UPDATE booking SET "
@@ -78,6 +79,7 @@ public class DBManager {
             + "VALUES (?, ?, ?, ?, ?, ?)";
     // Read
     public static final String GUEST = "SELECT * FROM guest";
+    public static final String GUESTID = "SELECT guestID FROM guest";
     public static final String GUESTROW = "SELECT * FROM guest WHERE guestID = ?";
     // Update
     public static final String UPDATEGUEST = "UPDATE guest SET "
@@ -93,6 +95,7 @@ public class DBManager {
             + "VALUES (?, ?)";
     // Read
     public static final String GUESTBOOKING = "SELECT * FROM guest_booking";
+    public static final String GUESTBOOKINGID = "SELECT guestBookingID FROM guest_booking";
     public static final String GUESTBOOKINGROW = "SELECT * FROM guest_booking WHERE guestBookingID = ?";
     // Update
     public static final String UPDATEGUESTBOOKING = "UPDATE guest_booking SET "
@@ -108,6 +111,7 @@ public class DBManager {
             + "VALUES (?)";
     // Read
     public static final String HOTEL = "SELECT * FROM hotel";
+    public static final String HOTELID = "SELECT hotelID FROM hotel";
     public static final String HOTELROW = "SELECT * FROM hotel WHERE hotelID = ?";
     // Update
     public static final String UPDATEHOTEL = "UPDATE hotel SET "
@@ -123,6 +127,7 @@ public class DBManager {
             + "VALUES (?, ?, ?, ?, ?)";
     // Read
     public static final String MANAGER = "SELECT * FROM manager";
+    public static final String MANAGERID = "SELECT managerID FROM manager";
     public static final String MANAGERROW = "SELECT * FROM manager WHERE managerID = ?";
     // Update
     public static final String UPDATEMANAGER = "UPDATE manager SET "
@@ -138,6 +143,7 @@ public class DBManager {
             + "VALUES (?, ?, ?, ?)";
     // Read
     public static final String ROOM = "SELECT * FROM room";
+    public static final String ROOMID = "SELECT roomID FROM room";
     public static final String ROOMROW = "SELECT * FROM room WHERE roomID = ?";
     // Update
     public static final String UPDATEROOM = "UPDATE room SET "

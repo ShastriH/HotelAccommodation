@@ -1,7 +1,7 @@
-package com.shastri.hotelaccommodation.controllers;
+package me.shastri.hotelaccommodation.controllers;
 
-import com.shastri.hotelaccommodation.util.DBManager;
-import com.shastri.hotelaccommodation.beans.Booking;
+import me.shastri.hotelaccommodation.util.DBManager;
+import me.shastri.hotelaccommodation.beans.Booking;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -115,7 +115,7 @@ public class BookingController {
                 Booking booking = new Booking(
                         bookingID,
                         result.getInt("bookingID"),
-                        result.getDate("arrivallTime"),
+                        result.getDate("arrivalTime"),
                         result.getDate("departureTime")
                 );
                 return booking;

@@ -1,40 +1,38 @@
-package com.shastri.hotelaccommodation.beans;
+package me.shastri.hotelaccommodation.beans;
 
-public class Guest {
-    private int guestID = 0;
-    private String title = "";
+public class Manager {
+    private int managerID = 0;
     private String firstName = "";
     private String lastName = "";
-    private String address = "";
-    private String email  = "";
+    private String email = "";
     private String phone = "";
+    private int hotelID = 0;
     
-    public Guest() {}
+    public Manager(){}
     
-    public Guest(int guestID, String title, String firstName, String lastName, String address, String email, String phone){
-        this.guestID = guestID;
-        this.title = title;
+    public Manager(String firstName, String lastName, String email, String phone, int hotelID){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
         this.email = email;
         this.phone = phone;
-    }
-
-    public int getGuestID(){
-        return guestID;
-    }
-
-    public void setGuestID(int guestID){
-        this.guestID = guestID;
+        this.hotelID = hotelID;
     }
     
-    public String getTitle(){
-        return title;
+    public Manager(int managerID, String firstName, String lastName, String email, String phone, int hotelID){
+        this.managerID = managerID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.hotelID = hotelID;
     }
 
-    public void setTitle(String title){
-        this.title = title;
+    public int getManagerID(){
+        return managerID;
+    }
+
+    public void setManagerID(int managerID){
+        this.managerID = managerID;
     }
 
     public String getFirstName(){
@@ -53,14 +51,6 @@ public class Guest {
         this.lastName = lastName;
     }
 
-    public String getAddress(){
-        return address;
-    }
-
-    public void setAddress(String address){
-        this.address = address;
-    }
-
     public String getEmail(){
         return email;
     }
@@ -75,6 +65,14 @@ public class Guest {
 
     public void setPhone(String phone){
         this.phone = phone;
+    }
+    
+    public int getHotelID() {
+        return hotelID;
+    }
+    
+    public void setHotelID(int hotelID) {
+        this.hotelID = hotelID;
     }
     
     @Override

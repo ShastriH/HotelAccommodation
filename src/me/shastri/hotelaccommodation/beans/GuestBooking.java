@@ -1,4 +1,4 @@
-package com.shastri.hotelaccommodation.beans;
+package me.shastri.hotelaccommodation.beans;
 
 public class GuestBooking {
     private int guestBookingID = 0;
@@ -6,6 +6,11 @@ public class GuestBooking {
     private int guestID = 0;
     
     public GuestBooking(){}
+    
+    public GuestBooking(int bookingID, int guestID){
+        this.bookingID = bookingID;
+        this.guestID = guestID;
+    }
     
     public GuestBooking(int guestBookingID, int bookingID, int guestID){
         this.guestBookingID = guestBookingID;

@@ -1,4 +1,4 @@
-package com.shastri.hotelaccommodation.beans;
+package me.shastri.hotelaccommodation.beans;
 
 public class Room {
     private int roomID = 0;
@@ -8,6 +8,13 @@ public class Room {
     private int hotelID = 0;
     
     public Room(){}
+    
+    public Room(double price, int capacity, boolean seaView, int hotelID){
+        this.price = price;
+        this.capacity = capacity;
+        this.seaView = seaView;
+        this.hotelID = hotelID;
+    }
     
     public Room(int roomID, double price, int capacity, boolean seaView, int hotelID){
         this.roomID = roomID;

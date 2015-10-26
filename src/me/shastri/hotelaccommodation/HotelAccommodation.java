@@ -1,10 +1,10 @@
 /**
  *
  * Author:              Shastri Harrinanan
- * Version:             0.4.0.0
- * Project Revision:    #008
+ * Version:             0.5.0.0
+ * Project Revision:    #009
  * Date Created:        22/10/2015
- * Date Modified:       25/10/2015
+ * Date Modified:       26/10/2015
  * 
  * Commit Log:
  * #001 22/10/2015 0.0.0.0 - 0.1.0.0: Add initial files
@@ -15,21 +15,22 @@
  * #006 23/10/2015 0.2.2.0 - 0.3.0.0: Change to a persistent database connection
  * #007 24/10/2015 0.3.0.0 - 0.3.1.0: Add complete functionality for more tables
  * #008 25/10/2015 0.3.1.0 - 0.4.0.0: Add complete functionality for the remaining tables
+ * #009 26/05/2015 0.4.0.0 - 0.5.0.0: Convert project to GUI
  * 
  * Current Status: Under Construction.
  * 
  */
 
-package com.shastri.hotelaccommodation;
+package me.shastri.hotelaccommodation;
 
-import com.shastri.hotelaccommodation.util.AppMenu;
-import com.shastri.hotelaccommodation.util.DBManager;
+import me.shastri.hotelaccommodation.util.AppMenu;
+import me.shastri.hotelaccommodation.util.DBManager;
 import java.sql.SQLException;
 import me.shastri.libs.UserInput;
 
 public class HotelAccommodation {
 
-    public static void main(String[] args) throws SQLException {
+    public static void main_HotelAccommodation(String[] args) throws SQLException {
         DBManager.getInstance();
         System.out.println("Welcome to the Hotel Accommodation App!\n\n");
         int response = 0;

@@ -1,7 +1,7 @@
-package com.shastri.hotelaccommodation.controllers;
+package me.shastri.hotelaccommodation.controllers;
 
-import com.shastri.hotelaccommodation.util.DBManager;
-import com.shastri.hotelaccommodation.beans.GuestBooking;
+import me.shastri.hotelaccommodation.util.DBManager;
+import me.shastri.hotelaccommodation.beans.GuestBooking;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

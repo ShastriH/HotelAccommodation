@@ -1,4 +1,4 @@
-package com.shastri.hotelaccommodation.beans;
+package me.shastri.hotelaccommodation.beans;
 
 import java.sql.Date;
 
@@ -9,6 +9,12 @@ public class Booking {
     private Date departure  = null;
     
     public Booking(){}
+    
+    public Booking(int roomID, Date arrival, Date departure){
+        this.roomID = roomID;
+        this.arrival = arrival;
+        this.departure = departure;
+    }
     
     public Booking(int bookingID, int roomID, Date arrival, Date departure){
         this.bookingID = bookingID;

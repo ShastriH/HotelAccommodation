@@ -1,4 +1,4 @@
-package com.shastri.hotelaccommodation.beans;
+package me.shastri.hotelaccommodation.beans;
 
 /**
  *
@@ -9,6 +9,10 @@ public class Hotel {
     private String address;
     
     public Hotel(){}
+    
+    public Hotel(String address){
+        this.address = address;
+    }
     
     public Hotel(int hotelID, String address){
         this.hotelID = hotelID;

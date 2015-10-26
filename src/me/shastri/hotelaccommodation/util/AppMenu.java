@@ -1,7 +1,7 @@
-package com.shastri.hotelaccommodation.util;
+package me.shastri.hotelaccommodation.util;
 
-import com.shastri.hotelaccommodation.beans.*;
-import com.shastri.hotelaccommodation.controllers.*;
+import me.shastri.hotelaccommodation.beans.*;
+import me.shastri.hotelaccommodation.controllers.*;
 import me.shastri.libs.UserInput;
 import java.sql.SQLException;
 
