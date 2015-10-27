@@ -63,6 +63,7 @@ public class Hotela extends javax.swing.JFrame {
     private void fillHotelRecordsComboBoxes(){
         viewHotelRecordsComboBox.removeAllItems();
         updateHotelRecordsComboBox.removeAllItems();
+        deleteHotelRecordsComboBox.removeAllItems();
         try{
             PreparedStatement stmt = conn.prepareStatement(DBManager.HOTELID);
             ResultSet result = stmt.executeQuery();
@@ -71,6 +72,7 @@ public class Hotela extends javax.swing.JFrame {
                 hotelID =  String.valueOf(result.getInt("hotelID"));
                 viewHotelRecordsComboBox.addItem(hotelID);
                 updateHotelRecordsComboBox.addItem(hotelID);
+                deleteHotelRecordsComboBox.addItem(hotelID);
             }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
@@ -132,6 +134,14 @@ public class Hotela extends javax.swing.JFrame {
         createManagersButton = new javax.swing.JButton();
         createRoomsButton = new javax.swing.JButton();
         createContainerMainMenuButton = new javax.swing.JButton();
+        createHotelContainer = new javax.swing.JPanel();
+        createHotelContainerLabel = new javax.swing.JLabel();
+        createHotelContainerInstructionsLabel = new javax.swing.JLabel();
+        createHotelAddressLabel = new javax.swing.JLabel();
+        createHotelAddressField = new javax.swing.JTextField();
+        createHotelButton = new javax.swing.JButton();
+        createHotelContainerMainMenuButton = new javax.swing.JButton();
+        createHotelContainerViewMenuButton = new javax.swing.JButton();
         viewContainer = new javax.swing.JPanel();
         viewContainerLabel = new javax.swing.JLabel();
         viewBookingsButton = new javax.swing.JButton();
@@ -266,6 +276,14 @@ public class Hotela extends javax.swing.JFrame {
         deleteManagersButton = new javax.swing.JButton();
         deleteRoomsButton = new javax.swing.JButton();
         deleteContainerMainMenuButton = new javax.swing.JButton();
+        deleteHotelContainer = new javax.swing.JPanel();
+        deleteHotelContainerLabel = new javax.swing.JLabel();
+        deleteHotelContainerInstructionsLabel = new javax.swing.JLabel();
+        deleteHotelRecordsComboBox = new javax.swing.JComboBox();
+        deleteHotelAddressLabel = new javax.swing.JLabel();
+        deleteHotelButton = new javax.swing.JButton();
+        deleteHotelContainerMainMenuButton = new javax.swing.JButton();
+        deleteHotelContainerViewMenuButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hotela");
@@ -459,6 +477,91 @@ public class Hotela extends javax.swing.JFrame {
         );
 
         getContentPane().add(createContainer, "card3");
+
+        createHotelContainer.setMinimumSize(new java.awt.Dimension(1280, 720));
+
+        createHotelContainerLabel.setFont(new java.awt.Font("Open Sans", 1, 36)); // NOI18N
+        createHotelContainerLabel.setText("Add Hotels");
+
+        createHotelContainerInstructionsLabel.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        createHotelContainerInstructionsLabel.setText("Add a hotel by entering its details below:");
+
+        createHotelAddressLabel.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        createHotelAddressLabel.setText("Hotel Address:");
+
+        createHotelAddressField.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+
+        createHotelButton.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        createHotelButton.setText("Add to Database");
+        createHotelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createHotelButtonActionPerformed(evt);
+            }
+        });
+
+        createHotelContainerMainMenuButton.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        createHotelContainerMainMenuButton.setText("Return to Main Menu");
+        createHotelContainerMainMenuButton.setPreferredSize(new java.awt.Dimension(150, 40));
+        createHotelContainerMainMenuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createHotelContainerMainMenuButtonActionPerformed(evt);
+            }
+        });
+
+        createHotelContainerViewMenuButton.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        createHotelContainerViewMenuButton.setText("Return to Create Menu");
+        createHotelContainerViewMenuButton.setPreferredSize(new java.awt.Dimension(150, 40));
+        createHotelContainerViewMenuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createHotelContainerViewMenuButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout createHotelContainerLayout = new javax.swing.GroupLayout(createHotelContainer);
+        createHotelContainer.setLayout(createHotelContainerLayout);
+        createHotelContainerLayout.setHorizontalGroup(
+            createHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(createHotelContainerLayout.createSequentialGroup()
+                .addGap(178, 178, 178)
+                .addGroup(createHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(createHotelContainerLayout.createSequentialGroup()
+                        .addComponent(createHotelAddressLabel)
+                        .addGap(18, 18, 18)
+                        .addGroup(createHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(createHotelButton)
+                            .addComponent(createHotelAddressField, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(createHotelContainerLayout.createSequentialGroup()
+                        .addGroup(createHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(createHotelContainerInstructionsLabel)
+                            .addComponent(createHotelContainerLabel)
+                            .addGroup(createHotelContainerLayout.createSequentialGroup()
+                                .addComponent(createHotelContainerMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                                .addComponent(createHotelContainerViewMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(665, 665, 665))))
+        );
+        createHotelContainerLayout.setVerticalGroup(
+            createHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(createHotelContainerLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(createHotelContainerLabel)
+                .addGap(43, 43, 43)
+                .addComponent(createHotelContainerInstructionsLabel)
+                .addGap(55, 55, 55)
+                .addGroup(createHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(createHotelAddressLabel)
+                    .addComponent(createHotelAddressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(createHotelButton)
+                .addGap(140, 140, 140)
+                .addGroup(createHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(createHotelContainerViewMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createHotelContainerMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(238, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(createHotelContainer, "card4");
 
         viewContainerLabel.setFont(new java.awt.Font("Open Sans", 1, 36)); // NOI18N
         viewContainerLabel.setText("View Menu");
@@ -775,7 +878,7 @@ public class Hotela extends javax.swing.JFrame {
         viewHotelAddressLabel.setText("Hotel Address");
 
         viewHotelContainerInstructionsLabel.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
-        viewHotelContainerInstructionsLabel.setText("Select a hotel via their ID from the dropdown list below:");
+        viewHotelContainerInstructionsLabel.setText("Select a hotel via its ID from the dropdown list below:");
 
         viewHotelContainerMainMenuButton.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         viewHotelContainerMainMenuButton.setText("Return to Main Menu");
@@ -816,7 +919,7 @@ public class Hotela extends javax.swing.JFrame {
                                 .addComponent(viewHotelContainerMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(viewHotelContainerViewMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(632, Short.MAX_VALUE))
+                .addContainerGap(641, Short.MAX_VALUE))
         );
         viewHotelContainerLayout.setVerticalGroup(
             viewHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1853,6 +1956,102 @@ public class Hotela extends javax.swing.JFrame {
 
         getContentPane().add(deleteContainer, "card3");
 
+        deleteHotelContainer.setMinimumSize(new java.awt.Dimension(1280, 720));
+
+        deleteHotelContainerLabel.setFont(new java.awt.Font("Open Sans", 1, 36)); // NOI18N
+        deleteHotelContainerLabel.setText("Delete Hotels");
+
+        deleteHotelContainerInstructionsLabel.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        deleteHotelContainerInstructionsLabel.setText("Select a hotel via its ID from the dropdown list below:");
+
+        deleteHotelRecordsComboBox.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        deleteHotelRecordsComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        deleteHotelRecordsComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteHotelRecordsComboBoxActionPerformed(evt);
+            }
+        });
+
+        deleteHotelAddressLabel.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        deleteHotelAddressLabel.setText("Hotel Address");
+
+        deleteHotelButton.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        deleteHotelButton.setText("Delete Hotel");
+        deleteHotelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteHotelButtonActionPerformed(evt);
+            }
+        });
+
+        deleteHotelContainerMainMenuButton.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        deleteHotelContainerMainMenuButton.setText("Return to Main Menu");
+        deleteHotelContainerMainMenuButton.setPreferredSize(new java.awt.Dimension(150, 40));
+        deleteHotelContainerMainMenuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteHotelContainerMainMenuButtonActionPerformed(evt);
+            }
+        });
+
+        deleteHotelContainerViewMenuButton.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        deleteHotelContainerViewMenuButton.setText("Return to Delete Menu");
+        deleteHotelContainerViewMenuButton.setPreferredSize(new java.awt.Dimension(150, 40));
+        deleteHotelContainerViewMenuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteHotelContainerViewMenuButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout deleteHotelContainerLayout = new javax.swing.GroupLayout(deleteHotelContainer);
+        deleteHotelContainer.setLayout(deleteHotelContainerLayout);
+        deleteHotelContainerLayout.setHorizontalGroup(
+            deleteHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deleteHotelContainerLayout.createSequentialGroup()
+                .addGroup(deleteHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(deleteHotelContainerLayout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addGroup(deleteHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(deleteHotelContainerInstructionsLabel)
+                            .addComponent(deleteHotelContainerLabel)
+                            .addGroup(deleteHotelContainerLayout.createSequentialGroup()
+                                .addComponent(deleteHotelContainerMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(122, 122, 122)
+                                .addComponent(deleteHotelContainerViewMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(deleteHotelContainerLayout.createSequentialGroup()
+                        .addGap(256, 256, 256)
+                        .addComponent(deleteHotelRecordsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(deleteHotelAddressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(deleteHotelContainerLayout.createSequentialGroup()
+                        .addGap(340, 340, 340)
+                        .addComponent(deleteHotelButton)))
+                .addContainerGap(346, Short.MAX_VALUE))
+        );
+        deleteHotelContainerLayout.setVerticalGroup(
+            deleteHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deleteHotelContainerLayout.createSequentialGroup()
+                .addGroup(deleteHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(deleteHotelContainerLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(deleteHotelContainerLabel)
+                        .addGap(43, 43, 43)
+                        .addComponent(deleteHotelContainerInstructionsLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(deleteHotelContainerLayout.createSequentialGroup()
+                        .addGap(220, 220, 220)
+                        .addGroup(deleteHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(deleteHotelRecordsComboBox)
+                            .addComponent(deleteHotelAddressLabel))))
+                .addGap(52, 52, 52)
+                .addComponent(deleteHotelButton)
+                .addGap(97, 97, 97)
+                .addGroup(deleteHotelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteHotelContainerViewMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteHotelContainerMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(254, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(deleteHotelContainer, "card4");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -2110,7 +2309,9 @@ public class Hotela extends javax.swing.JFrame {
     }//GEN-LAST:event_createGuestsButtonActionPerformed
 
     private void createHotelsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createHotelsButtonActionPerformed
-        // TODO add your handling code here:
+        createHotelContainer.setVisible(true);
+        createHotelContainerLabel.requestFocusInWindow();
+        createContainer.setVisible(false);
     }//GEN-LAST:event_createHotelsButtonActionPerformed
 
     private void createManagersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createManagersButtonActionPerformed
@@ -2130,7 +2331,9 @@ public class Hotela extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteGuestsButtonActionPerformed
 
     private void deleteHotelsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteHotelsButtonActionPerformed
-        // TODO add your handling code here:
+        deleteHotelContainer.setVisible(true);
+        deleteHotelContainerLabel.requestFocusInWindow();
+        deleteContainer.setVisible(false);
     }//GEN-LAST:event_deleteHotelsButtonActionPerformed
 
     private void deleteManagersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteManagersButtonActionPerformed
@@ -2312,10 +2515,70 @@ public class Hotela extends javax.swing.JFrame {
             fillManagerRecordsComboBoxes();
             JOptionPane.showMessageDialog(null, "The manager with the ID of "
                     + selectedItem + " was successfully updated.");
-        } catch (SQLException ex) {
+        } catch (SQLException e) {
             //JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_updateManagerButtonActionPerformed
+
+    private void createHotelContainerMainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createHotelContainerMainMenuButtonActionPerformed
+        homeContainer.setVisible(true);
+        createHotelContainer.setEnabled(false);
+        createHotelContainer.setVisible(false);
+    }//GEN-LAST:event_createHotelContainerMainMenuButtonActionPerformed
+
+    private void createHotelContainerViewMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createHotelContainerViewMenuButtonActionPerformed
+        createContainer.setVisible(true);
+        createHotelContainer.setEnabled(false);
+        createHotelContainer.setVisible(false);
+    }//GEN-LAST:event_createHotelContainerViewMenuButtonActionPerformed
+
+    private void createHotelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createHotelButtonActionPerformed
+        Hotel hotel = new Hotel(createHotelAddressField.getText());
+        try{
+            HotelController.insertHotel(hotel);
+            fillHotelRecordsComboBoxes();
+            JOptionPane.showMessageDialog(null, "The hotel was successfully added to the database.");
+        } catch (SQLException e) {
+            //
+        }
+    }//GEN-LAST:event_createHotelButtonActionPerformed
+
+    private void deleteHotelRecordsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteHotelRecordsComboBoxActionPerformed
+        try{
+            Hotel hotel = HotelController.getHotelRow(Integer.parseInt(deleteHotelRecordsComboBox.getSelectedItem().toString()));
+            deleteHotelAddressLabel.setText(String.valueOf(hotel.getAddress()));
+        } catch(NumberFormatException | SQLException | NullPointerException e){
+            //JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_deleteHotelRecordsComboBoxActionPerformed
+
+    private void deleteHotelContainerMainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteHotelContainerMainMenuButtonActionPerformed
+        homeContainer.setVisible(true);
+        deleteHotelContainer.setEnabled(false);
+        deleteHotelContainer.setVisible(false);
+    }//GEN-LAST:event_deleteHotelContainerMainMenuButtonActionPerformed
+
+    private void deleteHotelContainerViewMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteHotelContainerViewMenuButtonActionPerformed
+        deleteContainer.setVisible(true);
+        deleteHotelContainer.setEnabled(false);
+        deleteHotelContainer.setVisible(false);
+    }//GEN-LAST:event_deleteHotelContainerViewMenuButtonActionPerformed
+
+    private void deleteHotelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteHotelButtonActionPerformed
+        String selectedItem = deleteHotelRecordsComboBox.getSelectedItem().toString();
+        try{
+            boolean deleteAttempt = HotelController.deleteHotel(deleteHotelRecordsComboBox.getSelectedIndex() + 1);
+            fillHotelRecordsComboBoxes();
+            if(deleteAttempt){
+                JOptionPane.showMessageDialog(null, "The hotel ith the ID of "
+                    + selectedItem + " was successfully deleted from the database.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Nothing was deleted.");
+            }
+        } catch(SQLException e) {
+            //
+        }
+    }//GEN-LAST:event_deleteHotelButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2358,6 +2621,14 @@ public class Hotela extends javax.swing.JFrame {
     private javax.swing.JLabel createContainerLabel;
     private javax.swing.JButton createContainerMainMenuButton;
     private javax.swing.JButton createGuestsButton;
+    private javax.swing.JTextField createHotelAddressField;
+    private javax.swing.JLabel createHotelAddressLabel;
+    private javax.swing.JButton createHotelButton;
+    private javax.swing.JPanel createHotelContainer;
+    private javax.swing.JLabel createHotelContainerInstructionsLabel;
+    private javax.swing.JLabel createHotelContainerLabel;
+    private javax.swing.JButton createHotelContainerMainMenuButton;
+    private javax.swing.JButton createHotelContainerViewMenuButton;
     private javax.swing.JButton createHotelsButton;
     private javax.swing.JButton createManagersButton;
     private javax.swing.JButton createRoomsButton;
@@ -2366,6 +2637,14 @@ public class Hotela extends javax.swing.JFrame {
     private javax.swing.JLabel deleteContainerLabel;
     private javax.swing.JButton deleteContainerMainMenuButton;
     private javax.swing.JButton deleteGuestsButton;
+    private javax.swing.JLabel deleteHotelAddressLabel;
+    private javax.swing.JButton deleteHotelButton;
+    private javax.swing.JPanel deleteHotelContainer;
+    private javax.swing.JLabel deleteHotelContainerInstructionsLabel;
+    private javax.swing.JLabel deleteHotelContainerLabel;
+    private javax.swing.JButton deleteHotelContainerMainMenuButton;
+    private javax.swing.JButton deleteHotelContainerViewMenuButton;
+    private javax.swing.JComboBox deleteHotelRecordsComboBox;
     private javax.swing.JButton deleteHotelsButton;
     private javax.swing.JButton deleteManagersButton;
     private javax.swing.JButton deleteRoomsButton;

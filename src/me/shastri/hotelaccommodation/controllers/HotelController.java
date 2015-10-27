@@ -176,19 +176,20 @@ public class HotelController {
     /*
     * Delete
     */
-    public static void deleteHotel(int hotelID) throws SQLException {
+    public static boolean deleteHotel(int hotelID) throws SQLException {
         try(PreparedStatement stmt = conn.prepareStatement(DBManager.DELETEHOTEL);) {
             
             stmt.setInt(1, hotelID);
             
             int numAffectedRows = stmt.executeUpdate();
             if(numAffectedRows == 1){
-                System.out.println("\nThe hotel with the primary key of " + hotelID + " was successfully deleted.");
+                return true;
             } else {
-                System.err.println("The requested record was not found. Nothing was deleted.");
+                return false;
             }
         } catch(SQLException e) {
             System.err.println(e);
+            return false;
         }
     }
 }
