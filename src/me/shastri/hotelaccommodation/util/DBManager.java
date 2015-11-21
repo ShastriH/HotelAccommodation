@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import me.shastri.libs.UserInput;
 
+/**
+ *
+ * @author Shastri
+ */
 public class DBManager {
     
     private static DBManager instance = null;
@@ -28,7 +32,7 @@ public class DBManager {
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
         } catch(SQLException e) {
-            System.err.println(e);
+            System.out.println(e);
         }
     }
 
@@ -48,7 +52,7 @@ public class DBManager {
                 conn = null;
             }
         } catch(SQLException e){
-            System.err.println(e);
+            System.out.println(e);
         }
     }
 
@@ -57,17 +61,13 @@ public class DBManager {
     */
     // SQL queries for the booking table    
     // Create
-    public static final String INSERTBOOKING = "INSERT into booking "
-            + "(roomID, arrivalTime, departureTime) "
-            + "VALUES (?, ?, ?)";
+    public static final String INSERTBOOKING = "INSERT into booking (guestID, arrivalDate, departureDate) VALUES (?, ?, ?)";
     // Read
     public static final String BOOKING = "SELECT * FROM booking";
     public static final String BOOKINGID = "SELECT bookingID FROM booking";
     public static final String BOOKINGROW = "SELECT * FROM booking WHERE bookingID = ?";
     // Update
-    public static final String UPDATEBOOKING = "UPDATE booking SET "
-            + "roomID = ?, arrivalTime = ?, departureTime = ? "
-            + "WHERE bookingID = ?";
+    public static final String UPDATEBOOKING = "UPDATE booking SET guestID = ?, arrivalDate = ?, departureDate = ? WHERE bookingID = ?";
     // Delete
     public static final String DELETEBOOKING = "DELETE FROM booking WHERE bookingID = ?";
     
@@ -86,22 +86,6 @@ public class DBManager {
             + "WHERE guestID = ?";
     // Delete
     public static final String DELETEGUEST = "DELETE FROM guest WHERE guestID = ?";
-    
-    // SQL queries for the guest-booking table
-    // Create
-    public static final String INSERTGUESTBOOKING = "INSERT into guest_booking "
-            + "(bookingID, guestID) "
-            + "VALUES (?, ?)";
-    // Read
-    public static final String GUESTBOOKING = "SELECT * FROM guest_booking";
-    public static final String GUESTBOOKINGID = "SELECT guestBookingID FROM guest_booking";
-    public static final String GUESTBOOKINGROW = "SELECT * FROM guest_booking WHERE guestBookingID = ?";
-    // Update
-    public static final String UPDATEGUESTBOOKING = "UPDATE guest_booking SET "
-            + "bookingID = ?, guestID = ?) "
-            + "WHERE guestBookingID = ?";
-    // Delete
-    public static final String DELETEGUESTBOOKING = "DELETE FROM guest_booking WHERE guestBookingID = ?";
     
     // SQL queries for the hotel table    
     // Create
@@ -151,6 +135,22 @@ public class DBManager {
     // Delete
     public static final String DELETEROOM = "DELETE FROM room WHERE roomID = ?";
     
+    // SQL queries for the room-booking table
+    // Create
+    public static final String INSERTROOMBOOKING = "INSERT into room_booking "
+            + "(roomID, bookingID) "
+            + "VALUES (?, ?)";
+    // Read
+    public static final String ROOMBOOKING = "SELECT * FROM room_booking";
+    public static final String ROOMBOOKINGID = "SELECT roomBookingID FROM room_booking";
+    public static final String ROOMBOOKINGROW = "SELECT * FROM room_booking WHERE roomBookingID = ?";
+    public static final String ROOMBOOKINGROOMS = "SELECT roomID FROM room_booking WHERE bookingID = ?";
+    // Update
+    public static final String UPDATEROOMBOOKING = "UPDATE room_booking SET roomID = ? WHERE bookingID = ?";
+    // Delete
+    public static final String DELETEROOMBOOKING = "DELETE FROM room_booking WHERE roomBookingID = ?";
+    public static final String DELETEROOMBOOKINGS = "DELETE FROM room_booking WHERE bookingID = ?";
+    
     
     /*
     *   Utility methods
@@ -166,13 +166,13 @@ public class DBManager {
                 + "\n"
                 + "2. Guest"
                 + "\n"
-                + "3. Guest-booking"
+                + "3. Hotel"
                 + "\n"
-                + "4. Hotel"
+                + "4. Manager"
                 + "\n"
-                + "5. Manager"
+                + "5. Room"
                 + "\n"
-                + "6. Room"
+                + "6. Room-Booking"
                 + "\n"
                 + "7. Cancel"
                 + "\n\n"
@@ -182,5 +182,5 @@ public class DBManager {
                     + "Please enter a number.");
         }
        return 0;
-   }   
+   }
 }

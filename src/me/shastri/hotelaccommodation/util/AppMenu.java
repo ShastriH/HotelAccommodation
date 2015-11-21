@@ -19,7 +19,7 @@ public class AppMenu {
                 GuestController.requestNewGuestData();
                 break;
             case 3:
-                GuestBookingController.requestNewGuestBookingData();
+                RoomBookingController.requestNewRoomBookingData();
                 break;
             case 4:
                 HotelController.requestNewHotelData();
@@ -50,7 +50,7 @@ public class AppMenu {
                 GuestReadMenu();
                 break;
             case 3:
-                GuestBookingReadMenu();
+                RoomBookingReadMenu();
                 break;
             case 4:
                 HotelReadMenu();
@@ -122,14 +122,14 @@ public class AppMenu {
         }
     }
     
-    public static void GuestBookingReadMenu() throws SQLException {
+    public static void RoomBookingReadMenu() throws SQLException {
         int response = 0;
         try {
             response = UserInput.reqInt("Choose one of the following options."
                     + "\n\n"
-                    + "1. View a single guest-booking."
+                    + "1. View a single room-booking."
                     + "\n"
-                    + "2. View all guest-bookings."
+                    + "2. View all room-bookings."
                     + "\n\n"
                     + "Please make your selection by entering the corresponding number");
         } catch (NumberFormatException e) {
@@ -138,12 +138,12 @@ public class AppMenu {
         }
         switch (response) {
             case 1:
-                int guestBookingID = UserInput.reqInt("\nPlease enter the ID of the guest-BOOKING you want to view below.\nGuestBooking ID");
-                GuestBooking guestBooking = GuestBookingController.getGuestBookingRow(guestBookingID);
+                int roomBookingID = UserInput.reqInt("\nPlease enter the ID of the room-booking you want to view below.\nRoom-booking ID");
+                RoomBooking guestBooking = RoomBookingController.getRoomBookingRow(roomBookingID);
                 System.out.println(guestBooking);
                 break;
             case 2:
-                GuestBookingController.viewTableContents();
+                RoomBookingController.viewTableContents();
                 break;
             default:
                 break;
@@ -248,7 +248,7 @@ public class AppMenu {
                 GuestController.updateGuestHandler();
                 break;
             case 3:
-                GuestBookingController.updateGuestBookingHandler();
+                RoomBookingController.updateRoomBookingHandler();
                 break;
             case 4:
                 HotelController.updateHotelHandler();
@@ -280,8 +280,8 @@ public class AppMenu {
                 GuestController.deleteGuest(guestID);
                 break;
             case 3:
-                int guestBookingID = UserInput.reqInt("\nPlease enter the ID of the guest-booking you want to delete below.\nGuestBooking ID");
-                GuestBookingController.deleteGuestBooking(guestBookingID);
+                int roomBookingID = UserInput.reqInt("\nPlease enter the ID of the room-booking you want to delete below.\nRoom-booking ID");
+                RoomBookingController.deleteRoomBooking(roomBookingID);
                 break;
             case 4:
                 int hotelID = UserInput.reqInt("\nPlease enter the ID of the hotel you want to delete below.\nHotel ID");

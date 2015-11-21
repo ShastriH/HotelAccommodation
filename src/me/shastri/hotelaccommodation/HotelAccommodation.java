@@ -1,10 +1,10 @@
 /**
- *
+ * 
  * Author:              Shastri Harrinanan
- * Version:             0.5.1.0
- * Project Revision:    #011
+ * Version:             0.6.0.0
+ * Project Revision:    #012
  * Date Created:        22/10/2015
- * Date Modified:       27/10/2015
+ * Date Modified:       21/11/2015
  * 
  * Commit Log:
  * #001 22/10/2015 0.0.0.0 - 0.1.0.0: Add initial files
@@ -18,6 +18,7 @@
  * #009 26/10/2015 0.4.0.0 - 0.5.0.0: Convert project to GUI
  * #010 26/10/2015 0.5.0.0 - 0.5.0.1: Conduct minor cleaning
  * #011 27/10/2015 0.5.0.1 - 0.5.1.0: Add remaining functionality for one table
+ * #012 21/11/2015 0.5.1.0 - 0.6.0.0: Convert the application from a CLI to a GUI version
  * 
  * Current Status: Under Construction.
  * 
