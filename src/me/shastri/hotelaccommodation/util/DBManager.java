@@ -3,16 +3,16 @@ package me.shastri.hotelaccommodation.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import me.shastri.libs.UserInput;
 
 /**
  *
- * @author Shastri
+ * @author Shastri Harrinanan
  */
 public class DBManager {
     
     private static DBManager instance = null;
 
+    // Create the constants to store the connection information
     private static final String USERNAME = "hoteluser";
     private static final String PASSWORD = "pass";
     private static final String CONN_STRING = "jdbc:mysql://localhost/hotelaccommodationdb";
@@ -157,30 +157,5 @@ public class DBManager {
     */
    public static Connection connect() throws SQLException {
        return DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-   }
-   public static int dbMenu(String action){
-       try {
-            return UserInput.reqInt("Which type of record would you like to " + action + "?"
-                + "\n\n"
-                + "1. Booking"
-                + "\n"
-                + "2. Guest"
-                + "\n"
-                + "3. Hotel"
-                + "\n"
-                + "4. Manager"
-                + "\n"
-                + "5. Room"
-                + "\n"
-                + "6. Room-Booking"
-                + "\n"
-                + "7. Cancel"
-                + "\n\n"
-                + "Please make your selection by entering the corresponding number");
-        } catch (NumberFormatException e) {
-            System.out.println("\nAn error occurred. You did not enter a valid value.\n"
-                    + "Please enter a number.");
-        }
-       return 0;
    }
 }

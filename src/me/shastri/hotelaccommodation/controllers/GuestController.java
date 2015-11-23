@@ -8,11 +8,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import me.shastri.libs.UserInput;
 
 /**
  *
- * @author Shastri
+ * @author Shastri Harrinanan
  */
 public class GuestController {
     private static Connection conn = DBManager.getInstance().getConnection();
@@ -179,7 +178,7 @@ public class GuestController {
             int numAffectedRows = stmt.executeUpdate();
             // If the delete was successful, one row would have been affected
             if(numAffectedRows == 1){
-                JOptionPane.showMessageDialog(null, "\nThe guest with the primary key of " + guestID + " was successfully deleted.");
+                System.out.println("\nThe guest with the primary key of " + guestID + " was successfully deleted.");
                 return true;
             } else {
                 // Follow the "visibility of system status" heuristic
@@ -190,176 +189,6 @@ public class GuestController {
             // Follow the "visibility of system status" heuristic
             JOptionPane.showMessageDialog(null, e);
             return false;
-        }
-    }
-
-
-    //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    /*
-        CLI Methods
-    */
-
-    /**
-     * This method acquires the necessary information to make a new Guest object from the user.
-     *
-     * @throws SQLException
-     */
-    public static void requestNewGuestData() throws SQLException {
-        // Create a Guest object using user input
-        Guest guest = new Guest(UserInput.reqString("Enter the guest's title"),
-                UserInput.reqString("Enter the guest's first name"),
-                UserInput.reqString("Enter the guest's last name"),
-                UserInput.reqString("Enter the guest's address"),
-                UserInput.reqString("Enter the guest's email"),
-                UserInput.reqString("Enter the guest's phone number")
-        );
-        // Attempt to add the guest to the database and store the outcome
-        boolean insertGuest = insertGuest(guest);
-        // Inform the user of the outcome
-        // Note: Success is handled by the calling method (this method),
-        //       while a failure is handled by the called method (insertGuest())
-        if (insertGuest) {
-            System.out.println("A new row with the primary key of " + guest.getGuestID() + " was successfully inserted.");
-        }
-    }
-
-    /**
-     * This method retrieves a row from the guest table and outputs the values (sans the ID) to the console.
-     *
-     * @param guestID   The integer referring to the ID of the requested guest
-     * @throws SQLException     if a database error occurs
-     */
-    public static void viewGuestRow(int guestID) throws SQLException {
-        // Declare the ResultSet here to be able to work with it within the try block
-        ResultSet result = null;
-        try (PreparedStatement stmt = conn.prepareStatement(DBManager.GUESTROW);){
-            // Complete the preparation of the SQL statement by assigning the values for the stored procedure GUESTROW
-            stmt.setInt(1, guestID);
-            // Execute the query
-            result = stmt.executeQuery();
-            // If the query successfully retrieved the guest record from the guest table, then output it to the console
-            if(result.next()){
-                StringBuffer rowData = new StringBuffer();
-                rowData.append("Title: ").append(result.getString("guestTitle")).append("\n");
-                rowData.append("First name: ").append(result.getString("guestFirstName")).append("\n");
-                rowData.append("Last name: ").append(result.getString("guestLastName")).append("\n");
-                rowData.append("Address: ").append(result.getString("guestAddress")).append("\n");
-                rowData.append("Email: ").append(result.getString("guestEmail")).append("\n");
-                rowData.append("Telephone number: ").append(result.getString("guestPhone")).append("\n");
-                System.out.print(rowData);
-            } else {
-                // Follow the "visibility of system status" heuristic
-                System.out.println("No guest was found with an ID of " + guestID);
-            }
-        } catch(SQLException e) {
-            // Follow the "visibility of system status" heuristic
-            System.out.println(e);
-        } finally {
-            // Ensure the ResultSet object declared at the top of this method is closed
-            if(result != null){
-                result.close();
-            }
-        }
-    }
-
-    /**
-     * This method retrieves all of the rows of the guest table from the database and outputs them to the console.
-     *
-     * @throws SQLException     if a database error occurs
-     */
-    public static void viewTableContents() throws SQLException {
-        // Declare the ResultSet here to be able to work with it within the try block
-        ResultSet result = null;
-        // Prepare the statement
-        try (PreparedStatement stmt = conn.prepareStatement(DBManager.GUEST);){
-            // Execute the query
-            result = stmt.executeQuery();
-            System.out.println("The contents of the guest table are as follows: " + "\n");
-            // Loop through the returned rows
-            while(result.next()){
-                // Output each row as a string after using a StringBuffer object to create the string
-                StringBuffer rowData = new StringBuffer();
-                rowData.append("Guest ID: ").append(result.getString("guestID")).append("\n");
-                rowData.append("Title: ").append(result.getString("guestTitle")).append("\n");
-                rowData.append("First name: ").append(result.getString("guestFirstName")).append("\n");
-                rowData.append("Last name: ").append(result.getString("guestLastName")).append("\n");
-                rowData.append("Address: ").append(result.getString("guestAddress")).append("\n");
-                rowData.append("Email: ").append(result.getString("guestEmail")).append("\n");
-                rowData.append("Telephone number: ").append(result.getString("guestPhone")).append("\n");
-                System.out.print(rowData);
-                // If there is another row, output white space before returning the cursor to that row
-                if(result.next()){
-                    System.out.println();
-                    result.previous();
-                }
-            }
-        } catch(SQLException e) {
-            // Follow the "visibility of system status" heuristic
-            System.out.println(e);
-        } finally {
-            // Ensure the ResultSet object declared at the top of this method is closed
-            if(result != null){
-                result.close();
-            }
-        }
-    }
-
-    /**
-     * This method controls how the process to update a guest in the CLI version of this application is handled.
-     *
-     * @throws SQLException     if a database error occurs
-     */
-    public static void updateGuestHandler() throws SQLException {
-        try {
-            // Acquire the guest ID from the user
-            int guestID = UserInput.reqInt("Please enter the ID of the guest you want to modify below.\nGuest ID");
-            System.out.println();
-            // Acquire the guest from the database requested by the user
-            Guest guest = getGuestRow(guestID);
-            // If the requested guest was not found, inform the user
-            if (guest == null) {
-                System.out.println("No guest was found with an ID of " + guestID);
-                return;
-            }
-            // If the guest was found, display the results
-            // Note: The valus for the guest should be output directly.
-            //       Instead, currently they are done using viewGuestRow() which involves another call to the database
-            System.out.println("The details of the guest you selected are as follows:");
-            viewGuestRow(guestID);
-            // Whitespace
-            System.out.println();
-            // Call another requestBookingData() to actually update the guest
-            requestGuestData(guestID);
-        } catch (NumberFormatException e) {
-            // Follow the "visibility of system status" heuristic
-            // Inform the user they did not enter a valid integer as the guest ID
-            System.out.println("\nAn error occurred. You did not enter a valid value.\n" + "Please enter a number.");
-        }
-    }
-
-    /**
-     * This method acquires data from the user to be used to update a specified row in the guest table in the database.
-     *
-     * @param guestID   The ID of the requested guest
-     * @throws SQLException     The called method updateGuest() can throw an SQL exception if a database error occurs
-     */
-    public static void requestGuestData(int guestID) throws SQLException {
-        // Create a Guest object via user input
-        Guest guest = new Guest(guestID,
-                UserInput.reqString("Enter the guest's title"),
-                UserInput.reqString("Enter the guest's first name"),
-                UserInput.reqString("Enter the guest's last name"),
-                UserInput.reqString("Enter the guest's address"),
-                UserInput.reqString("Enter the guest's email"),
-                UserInput.reqString("Enter the guest's phone number")
-        );
-        // Call updateGuest() to update the guest in the database
-        boolean result = updateGuest(guest);
-        // Inform the user of the outcome
-        // Note: Success is handled by the calling method (this method),
-        //       while a failure is handled by the called method (updateGuest)
-        if(result){
-            System.out.println("\nThe guest with the primary key of " + guest.getGuestID() + " was successfully updated.");
         }
     }
 }

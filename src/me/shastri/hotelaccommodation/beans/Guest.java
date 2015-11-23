@@ -2,7 +2,7 @@ package me.shastri.hotelaccommodation.beans;
 
 /**
  *
- * @author Shastri
+ * @author Shastri Harrinanan
  */
 public class Guest {
     private int guestID = 0;

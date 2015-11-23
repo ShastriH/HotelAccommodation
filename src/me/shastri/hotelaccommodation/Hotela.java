@@ -1,3 +1,31 @@
+/**
+ * 
+ * Author:              Shastri Harrinanan
+ * Version:             1.0.0.1
+ * Project Revision:    #014
+ * Date Created:        22/10/2015
+ * Date Modified:       23/11/2015
+ * 
+ * Commit Log:
+ * #001 22/10/2015 0.0.0.0 - 0.1.0.0: Add initial files
+ * #002 23/10/2015 0.1.0.0 - 0.1.1.0: Reorganise the main menu and add missing constructors
+ * #003 23/10/2015 0.1.1.0 - 0.2.0.0: Add partial create functionality and refactor the menus
+ * #004 23/10/2015 0.2.0.0 - 0.2.1.0: Add partial update functionality
+ * #005 23/10/2015 0.2.1.0 - 0.2.2.0: Add partial delete functionality
+ * #006 23/10/2015 0.2.2.0 - 0.3.0.0: Change to a persistent database connection
+ * #007 24/10/2015 0.3.0.0 - 0.3.1.0: Add complete functionality for more tables
+ * #008 25/10/2015 0.3.1.0 - 0.4.0.0: Add complete functionality for the remaining tables
+ * #009 26/10/2015 0.4.0.0 - 0.5.0.0: Convert project to GUI
+ * #010 26/10/2015 0.5.0.0 - 0.5.0.1: Conduct minor cleaning
+ * #011 27/10/2015 0.5.0.1 - 0.5.1.0: Add remaining functionality for one table
+ * #012 21/11/2015 0.5.1.0 - 0.6.0.0: Convert the application from a CLI to a GUI version
+ * #013 21/11/2015 0.6.0.0 - 1.0.0.0: Complete GUI conversion
+ * #014 23/11/2015 1.0.0.0 - 1.0.0.1: Conduct minor cleaning
+ * 
+ * Current Status: Released.
+ * 
+ */
+
 package me.shastri.hotelaccommodation;
 
 import java.sql.Connection;
@@ -14,7 +42,7 @@ import me.shastri.hotelaccommodation.util.*;
 
 /**
  *
- * @author Shastri
+ * @author Shastri Harrinanan Harrinanan
  */
 public class Hotela extends javax.swing.JFrame {
     private static final Connection conn = DBManager.getInstance().getConnection();
@@ -87,7 +115,7 @@ public class Hotela extends javax.swing.JFrame {
     // Method to populate all of the combo boxes created to display the IDs of all the booking records used by the application
     private void fillBookingRecordsComboBoxes(){
         // Create a Model which contains the IDs of all of the booking records in the database
-        DefaultComboBoxModel dcbm = FormFillers.getBookingRecordsComboBox();
+        DefaultComboBoxModel dcbm = FormFiller.getBookingRecordsComboBox();
         // Set the appropriate combo boxes to that Model
         viewBookingRecordsComboBox.setModel(dcbm);
         updateBookingRecordsComboBox.setModel(dcbm);
@@ -102,7 +130,7 @@ public class Hotela extends javax.swing.JFrame {
     // Method to populate all of the combo boxes created to display the IDs of all the guest records used by the application
     private void fillGuestRecordsComboBoxes(){
         // Create a Model which contains the IDs of all of the guest records in the database
-        DefaultComboBoxModel dcbm = FormFillers.getGuestRecordsComboBox();
+        DefaultComboBoxModel dcbm = FormFiller.getGuestRecordsComboBox();
         // Set the appropriate combo boxes to that Model
         createBookingGuestIDComboBox.setModel(dcbm);
         updateBookingGuestIDComboBox.setModel(dcbm);
@@ -121,7 +149,7 @@ public class Hotela extends javax.swing.JFrame {
     // Method to populate all of the combo boxes created to display the IDs of all the hotel records used by the application
     private void fillHotelRecordsComboBoxes(){
         // Create a Model which contains the IDs of all of the hotel records in the database
-        DefaultComboBoxModel dcbm = FormFillers.getHotelRecordsComboBox();
+        DefaultComboBoxModel dcbm = FormFiller.getHotelRecordsComboBox();
         // Set the appropriate combo boxes to that Model
         createManagerHotelIDComboBox.setModel(dcbm);
         viewHotelRecordsComboBox.setModel(dcbm);
@@ -140,7 +168,7 @@ public class Hotela extends javax.swing.JFrame {
     // Method to populate all of the combo boxes created to display the IDs of all the manager records used by the application
     private void fillManagerRecordsComboBoxes(){
         // Create a Model which contains the IDs of all of the manager records in the database
-        DefaultComboBoxModel dcbm = FormFillers.getManagerRecordsComboBox();
+        DefaultComboBoxModel dcbm = FormFiller.getManagerRecordsComboBox();
         // Set the appropriate combo boxes to that Model
         viewManagerRecordsComboBox.setModel(dcbm);
         updateManagerRecordsComboBox.setModel(dcbm);
@@ -155,13 +183,13 @@ public class Hotela extends javax.swing.JFrame {
     // Method to populate all of the combo boxes created to display the IDs of all the room records used by the application
     private void fillRoomRecordsComboBoxes(){
         // Create a Model which contains the IDs of all of the room records in the database
-        DefaultComboBoxModel dcbm = FormFillers.getRoomRecordsComboBox();
+        DefaultComboBoxModel dcbm = FormFiller.getRoomRecordsComboBox();
         // Set the appropriate combo boxes to that Model
         viewRoomRecordsComboBox.setModel(dcbm);
         updateRoomRecordsComboBox.setModel(dcbm);
         deleteRoomRecordsComboBox.setModel(dcbm);
         // Create a DefaultListModel which contains the IDs of all of the room records in the database
-        DefaultListModel dlm = FormFillers.getRoomRecordsList();
+        DefaultListModel dlm = FormFiller.getRoomRecordsList();
         // Set the appropriate lists to that DefaultListModel
         createBookingRoomList.setModel(dlm);
         updateBookingRoomList.setModel(dlm);
@@ -509,7 +537,7 @@ public class Hotela extends javax.swing.JFrame {
         appNameLabel.setFont(new java.awt.Font("Open Sans", 1, 36)); // NOI18N
         appNameLabel.setText("Hotela");
 
-        bylineLabel.setText(" by SH");
+        bylineLabel.setText(" by Shastri Harrinanan - N00147655");
 
         viewRecordButton.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         viewRecordButton.setText("View");
@@ -4516,7 +4544,7 @@ public class Hotela extends javax.swing.JFrame {
                 Guest guest = GuestController.getGuestRow(booking.getGuestID());
                 // Populate the labels with the appropriate data
                 deleteBookingGuestValueLabel.setText(guest.getGuestID() + ":    " + guest.getTitle() + " " + guest.getFirstName() + " " + guest.getLastName());
-                deleteBookingRoomsValueLabel.setText(rooms.toString());
+                deleteBookingRoomsValueLabel.setText(rooms);
                 deleteBookingArrivalDateValueLabel.setText(String.valueOf(booking.getArrivalDate()));
                 deleteBookingDepartureDateValueLabel.setText(String.valueOf(booking.getDepartureDate()));
             } catch (SQLException e) {
@@ -4683,7 +4711,7 @@ public class Hotela extends javax.swing.JFrame {
                     deleteHotelAddressLabel.setText("All hotels have been deleted from the database.");
                 }
                 // Follow the "visibility of system status" heuristic
-                JOptionPane.showMessageDialog(null, "The hotel with the ID of " + hotelID + " was successfully deleted from the database.");
+                JOptionPane.showMessageDialog(null, "The hotel was successfully deleted.");
             }
         } catch(SQLException e) {
             // Follow the "visibility of system status" heuristic
@@ -4748,7 +4776,7 @@ public class Hotela extends javax.swing.JFrame {
                     deleteManagerHotelIDLabel.setText("");
                 }
                 // Follow the "visibility of system status" heuristic
-                JOptionPane.showMessageDialog(null, "The manager with an ID of " + managerID + " was successfully deleted");
+                JOptionPane.showMessageDialog(null, "The manager was successfully deleted.");
             }
         } catch(SQLException e) {
             // Follow the "visibility of system status" heuristic
@@ -4815,7 +4843,7 @@ public class Hotela extends javax.swing.JFrame {
                     deleteRoomHotelIDLabel.setText("");
                 }
                 // Follow the "visibility of system status" heuristic
-                JOptionPane.showMessageDialog(null, "A room with the ID of " + roomID + " was successfully deleted.");
+                JOptionPane.showMessageDialog(null, "The room was successfully deleted.");
             }
         } catch (SQLException e) {
             // Follow the "visibility of system status" heuristic

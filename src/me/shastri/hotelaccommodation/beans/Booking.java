@@ -4,7 +4,7 @@ import java.sql.Date;
 
 /**
  *
- * @author Shastri
+ * @author Shastri Harrinanan
  */
 public class Booking {
     private int bookingID = 0;

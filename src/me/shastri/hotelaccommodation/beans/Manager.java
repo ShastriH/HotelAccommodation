@@ -2,7 +2,7 @@ package me.shastri.hotelaccommodation.beans;
 
 /**
  *
- * @author Shastri
+ * @author Shastri Harrinanan
  */
 public class Manager {
     private int managerID = 0;

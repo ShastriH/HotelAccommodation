@@ -9,9 +9,9 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Shastri
+ * @author Shastri Harrinanan
  */
-public class FormFillers {
+public class FormFiller {
     // Get the connection to the database
     private static final Connection conn = DBManager.getInstance().getConnection();
     

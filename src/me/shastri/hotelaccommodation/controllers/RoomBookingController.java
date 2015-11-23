@@ -8,11 +8,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import me.shastri.libs.UserInput;
 
 /**
  *
- * @author Shastri
+ * @author Shastri Harrinanan
  */
 public class RoomBookingController {
     private static Connection conn = DBManager.getInstance().getConnection();
@@ -180,145 +179,5 @@ public class RoomBookingController {
             JOptionPane.showMessageDialog(null, e);
         }
         return true;
-    }
-
-
-    //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    /*
-        CLI Methods
-    */
-
-    public static void requestNewRoomBookingData() throws SQLException {
-        RoomBooking roomBooking = new RoomBooking();
-        roomBooking.setRoomID(UserInput.reqInt("Does the room ID"));
-        roomBooking.setBookingID(UserInput.reqInt("Enter the booking ID"));
-        boolean insertRoomBooking = insertRoomBooking(roomBooking);
-        if (insertRoomBooking) {
-            System.out.println("A new row with the primary key of " + roomBooking.getRoomBookingID() + " was successfully inserted.");
-        }
-    }
-
-    public static void viewRoomBookingRow(int roomBookingID) throws SQLException {
-        ResultSet result = null;
-        try (PreparedStatement stmt = conn.prepareStatement(DBManager.ROOMBOOKINGROW);){
-            stmt.setInt(1, roomBookingID);
-            result = stmt.executeQuery();
-
-            if(result.next()){
-                StringBuffer rowData = new StringBuffer();
-                rowData.append("roomBookingID: ").append(roomBookingID).append("\n");
-                rowData.append("Room ID: ").append(result.getInt("roomID")).append("\n");
-                rowData.append("Booking ID: ").append(result.getInt("bookingID")).append("\n");
-                rowData.append("Arrival Date: ").append(result.getDate("arrivalDate")).append("\n");
-                rowData.append("Departure Date: ").append(result.getDate("departureDate")).append("\n");
-                System.out.print(rowData);
-            } else {
-                System.out.println("No room-booking was found with an ID of " + roomBookingID);
-            }
-        } catch(SQLException e) {
-            System.out.println(e);
-        } finally {
-            if(result != null){
-                result.close();
-            }
-        }
-    }
-
-    public static void viewTableContents() throws SQLException {
-        ResultSet result = null;
-        try (PreparedStatement stmt = conn.prepareStatement(DBManager.ROOMBOOKING);){
-            result = stmt.executeQuery();
-            System.out.println("The contents of the room-booking table are as follows: " + "\n");
-            while(result.next()){
-                StringBuffer rowData = new StringBuffer();
-                rowData.append("roomBookingID: ").append(result.getDouble("roomBookingID")).append("\n");
-                rowData.append("Room ID: ").append(result.getInt("roomID")).append("\n");
-                rowData.append("Booking ID: ").append(result.getInt("bookingID")).append("\n");
-                rowData.append("Arrival Date: ").append(result.getDate("arrivalDate")).append("\n");
-                rowData.append("Departure Date: ").append(result.getDate("departureDate")).append("\n");
-                System.out.print(rowData);
-                if(result.next()){
-                    System.out.println();
-                    result.previous();
-                }
-            }
-        } catch(SQLException e) {
-            System.out.println(e);
-        } finally {
-            if(result != null){
-                result.close();
-            }
-        }
-    }
-
-    public static RoomBooking getRoomBookingRow(int roomBookingID) throws SQLException {
-        ResultSet result = null;
-        try (PreparedStatement stmt = conn.prepareStatement(DBManager.ROOMBOOKINGROW);){
-            stmt.setInt(1, roomBookingID);
-            result = stmt.executeQuery();
-
-            if(result.next()){
-                RoomBooking roomBooking = new RoomBooking(
-                        roomBookingID,
-                        result.getInt("roomID"),
-                        result.getInt("bookingID"));
-                return roomBooking;
-            } else {
-                System.out.println("The requested row was not found.");
-                return null;
-            }
-        } catch(SQLException e) {
-            System.out.println(e);
-            return null;
-        } finally {
-            if(result != null){
-                result.close();
-            }
-        }
-    }
-
-    public static void updateRoomBookingHandler() throws SQLException {
-        try {
-            int roomBookingID = UserInput.reqInt("Please enter the ID of the room-booking you want to modify below.\nGuest-booking ID");
-            System.out.println();
-            RoomBooking roomBooking = getRoomBookingRow(roomBookingID);
-            if (roomBooking == null) {
-                System.out.println("No room-booking was found with an ID of " + roomBookingID);
-                return;
-            }
-            System.out.println("The details of the room-booking you selected are as follows:");
-            viewRoomBookingRow(roomBookingID);
-            System.out.println();
-            requestRoomBookingData(roomBookingID);
-        } catch (NumberFormatException e) {
-            System.out.println("\nAn error occurred. You did not enter a valid value.\n" + "Please enter a number.");
-        }
-    }
-
-    public static void requestRoomBookingData(int roomBookingID) throws SQLException {
-        RoomBooking roomBooking = new RoomBooking();
-        roomBooking.setRoomBookingID(roomBookingID);
-        roomBooking.setBookingID(UserInput.reqInt("Enter the booking ID"));
-        roomBooking.setRoomID(UserInput.reqInt("Does the room ID"));
-        boolean updateRoomBooking = updateRoomBooking(roomBooking);
-        if(updateRoomBooking){
-            System.out.println("\nThe room-booking with the primary key of " + roomBooking.getRoomBookingID() + " was successfully updated.");
-        }
-    }
-
-    public static void deleteRoomBooking(int roomBookingID) throws SQLException {
-        try(PreparedStatement stmt = conn.prepareStatement(DBManager.DELETEROOMBOOKING);) {
-
-            stmt.setInt(1, roomBookingID);
-
-            int numAffectedRows = stmt.executeUpdate();
-            if(numAffectedRows == 1){
-                System.out.println("\nThe room-booking with the primary key of " + roomBookingID + " was successfully deleted.");
-            } else {
-                System.out.println("The requested record was not found. Nothing was deleted.");
-            }
-        } catch(SQLException e) {
-            System.out.println(e);
-        }
     }
 }
